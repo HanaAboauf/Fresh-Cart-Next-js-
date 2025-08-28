@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "./_components/_NavBar/NavBar";
 import Footer from "./_components/_footer/Footer";
+import { Toaster } from "@/components/ui/sonner";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -27,9 +28,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Navbar/>
-        {children}
-        <Footer/>
+        <Navbar />
+
+        <main>{children}</main>
+        <Toaster position="top-right" />
+
+        <Footer />
       </body>
     </html>
   );

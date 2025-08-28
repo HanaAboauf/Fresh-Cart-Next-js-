@@ -9,9 +9,9 @@ export default function Navbar() {
     <div className="bg-gray-200 p-5">
       <div className="container mx-auto">
         <div className="flex justify-between">
-            <Link href="/">
-              <Image src={logo} alt="logo" />
-            </Link>
+          <Link href="/">
+            <Image src={logo} alt="logo" />
+          </Link>
           <div className="flex justify-center items-center gap-4">
             <div className="flex justify-center items-center gap-4">
               <Link href="/" className="pt-1.5 text-gray-500">
@@ -28,9 +28,15 @@ export default function Navbar() {
               </Link>
             </div>
           </div>
-          <Link href="/cart">
-            <ShoppingCart className="rotate-y-180" />
-          </Link>
+          <div className="flex justify-center items-center gap-4">
+            <Link href="/cart">
+              <ShoppingCart className="rotate-y-180" />
+            </Link>
+
+            <Link href="/auth/signup" className="ml-4 text-gray-500 hover:text-green-500">
+            Register
+            </Link>
+          </div>
         </div>
       </div>
     </div>
