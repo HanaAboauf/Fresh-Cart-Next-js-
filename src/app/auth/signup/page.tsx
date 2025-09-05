@@ -177,7 +177,7 @@ console.log(values.password, values.rePassword);
               </FormItem>
             )}
           />
-          <Button type="submit" className="mt-7">
+          <Button type="submit" className="mt-7 bg-green-500 hover:bg-green-600 hover:cursor">
             Submit
           </Button>
         </form>

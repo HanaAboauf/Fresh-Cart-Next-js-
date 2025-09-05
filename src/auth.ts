@@ -1,6 +1,7 @@
 import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
+
 export const AuthOptions: NextAuthOptions = {
   pages: { signIn: "/auth/login" },// to make user redirect to this page when not logged in instead of default sign in page of next auth
   providers: [
@@ -30,4 +31,22 @@ export const AuthOptions: NextAuthOptions = {
       },
     }),
   ],
+
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) {
+        token.user = user.user;
+        token.accessToken = user.token;
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      if (token) {
+        session.user = token.user as{ name: string; email: string; role: string};
+        session.token = token.token;
+      }
+      return session;
+
+  }
+}
 };
