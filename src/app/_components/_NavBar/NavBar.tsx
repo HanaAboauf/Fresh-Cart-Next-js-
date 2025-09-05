@@ -7,11 +7,11 @@ import Link from "next/link";
 import { signOut, useSession } from "next-auth/react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
-import { cn } from './../../../lib/utils';
-
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const { data, status } = useSession();
+  const pathname = usePathname();
   return (
     <div className="bg-gray-200 p-5">
       <div className="container mx-auto">
@@ -21,16 +21,16 @@ export default function Navbar() {
           </Link>
           <div className="flex justify-center items-center gap-4">
             <div className="flex justify-center items-center gap-4">
-              <Link href="/" className="pt-1.5 text-gray-500">
-                Home
+              <Link href="/" className={`pt-1.5 ${pathname==="/"?"text-green-500":"text-gray-500"}`}>
+              Home 
               </Link>
-              <Link href="/products" className="pt-1.5 text-gray-500">
+              <Link href="/products" className={`pt-1.5 ${pathname==="/products"?"text-green-500":"text-gray-500"}`}>
                 Products
               </Link>
-              <Link href="/categories" className="pt-1.5 text-gray-500">
+              <Link href="/categories" className={`pt-1.5 ${pathname==="/categories"?"text-green-500":"text-gray-500"}`}>
                 Categories
               </Link>
-              <Link href="/brands" className="pt-1.5 text-gray-500">
+              <Link href="/brands" className={`pt-1.5 ${pathname==="/brands"?"text-green-500":"text-gray-500"}`}>
                 Brands
               </Link>
             </div>
@@ -46,13 +46,13 @@ export default function Navbar() {
               <>
                 <Link
                   href="/auth/signup"
-                  className="ml-4 text-gray-500 hover:text-green-500"
+                  className={`ml-4  ${pathname==="/auth/signup"?"text-green-500":"text-gray-500 hover:text-green-500"}`}
                 >
                   Register
                 </Link>
                 <Link
                   href="/auth/login"
-                  className="ml-4 text-gray-500 hover:text-green-500"
+                  className={`ml-4  ${pathname==="/auth/login"?"text-green-500":"text-gray-500 hover:text-green-500"}`}
                 >
                   Login
                 </Link>
