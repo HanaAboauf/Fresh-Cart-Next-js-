@@ -36,6 +36,10 @@ const formSchema = z
 
 type FormSchemaType = z.infer<typeof formSchema>;
 
+// export const metadata = {
+//   title: "Sign Up Page",
+// };
+
 export default function SignUp() {
   const router = useRouter();
   const form = useForm<z.infer<typeof formSchema>>({
