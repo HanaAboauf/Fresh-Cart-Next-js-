@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function SearchBar() {
   return (
-    <div className='bg-white flex justify-center items-center py-5 '>
+    <div className='bg-white flex justify-center items-center py-6 '>
         <input
             type="text"
             placeholder="Search..."

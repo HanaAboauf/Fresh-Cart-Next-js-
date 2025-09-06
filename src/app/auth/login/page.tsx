@@ -18,12 +18,17 @@ import { signIn } from "next-auth/react";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 
+
 const formSchema = z.object({
   email: z.email(),
   password: z.string().min(6, "Password must be at least 6 characters long"),
 });
 
 type FormSchemaType = z.infer<typeof formSchema>;
+
+export const metadata = {
+  title: "Log In Page",
+};
 
 export default function LogIn() {
 
@@ -95,7 +100,7 @@ export default function LogIn() {
               </FormItem>
             )}
           />
-          <Button type="submit" className="mt-7">
+          <Button type="submit" className="mt-7 bg-green-500 hover:bg-green-600 hover:cursor">
             Submit
           </Button>
         </form>

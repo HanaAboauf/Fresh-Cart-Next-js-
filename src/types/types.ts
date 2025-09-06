@@ -23,21 +23,21 @@ export interface Product {
   id: string;
 }
 
-interface Category {
+export interface Category {
   _id: string;
   name: string;
   slug: string;
   image: string;
 }
 
-interface Brand {
+export interface Brand {
   _id: string;
   name: string;
   slug: string;
   image: string;
 }
 
-interface Subcategory {
+export interface Subcategory {
   _id: string;
   name: string;
   slug: string;

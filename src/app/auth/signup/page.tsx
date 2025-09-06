@@ -36,6 +36,10 @@ const formSchema = z
 
 type FormSchemaType = z.infer<typeof formSchema>;
 
+// export const metadata = {
+//   title: "Sign Up Page",
+// };
+
 export default function SignUp() {
   const router = useRouter();
   const form = useForm<z.infer<typeof formSchema>>({
@@ -177,7 +181,7 @@ console.log(values.password, values.rePassword);
               </FormItem>
             )}
           />
-          <Button type="submit" className="mt-7">
+          <Button type="submit" className="mt-7 bg-green-500 hover:bg-green-600 hover:cursor">
             Submit
           </Button>
         </form>
